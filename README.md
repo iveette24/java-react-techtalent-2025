@@ -1,1 +1,0 @@
-# techtalent-2025
