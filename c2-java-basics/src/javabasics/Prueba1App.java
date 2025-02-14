@@ -1,3 +1,4 @@
+package javabasics;
 
 public class Prueba1App {
 
