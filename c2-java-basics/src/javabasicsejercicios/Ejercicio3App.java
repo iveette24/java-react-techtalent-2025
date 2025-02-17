@@ -11,7 +11,7 @@ public class Ejercicio3App {
 		
 		//Programo las operaciones y le doy una explicación para saber de donde viene el resultado.
 		
-		System.out.println("Valor de cada variable => "+"X="+X+"; Y="+Y+"; N="+N+"; M="+M+";");
+
 		System.out.println("Suma X + Y = "+X+" + "+Y+" = "+(X+Y));
 		System.out.println("Resta X - Y = "+X+" - "+Y+" = "+(X-Y));
 		System.out.println("Multiplicaión X x Y = "+X+" x "+Y+" = "+(X*Y));
@@ -20,7 +20,6 @@ public class Ejercicio3App {
 		System.out.println("Suma N + M = "+N+" + "+M+" = "+(N+M));
 		System.out.println("Resta N - M = "+N+" - "+M+" = "+(N-M));
 		System.out.println("Multiplicación N x M = "+N+" x "+M+" = "+(N*M));
-		System.out.println("División N / M = "+N+" / "+M+" = "+(N/M));
 		System.out.println("Residuo N / M = "+(N%M));
 		System.out.println("Suma X + N = "+X+" + "+N+" = "+(X+N));
 		System.out.println("División Y / M = "+Y+" / "+M+" = "+(Y/M));
