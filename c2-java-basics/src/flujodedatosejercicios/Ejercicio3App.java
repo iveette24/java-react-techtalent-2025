@@ -1,4 +1,4 @@
-package flujodedatos;
+package flujodedatosejercicios;
 
 import javax.swing.JOptionPane;
 

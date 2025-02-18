@@ -1,4 +1,4 @@
-package flujodedatos;
+package flujodedatosejercicios;
 
 public class Ejercicio2App {
 
