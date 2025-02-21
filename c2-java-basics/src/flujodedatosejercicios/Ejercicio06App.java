@@ -2,7 +2,7 @@ package flujodedatosejercicios;
 
 import java.util.Scanner;
 
-public class Ejercicio6App {
+public class Ejercicio06App {
 	//Definir la constante del IVA
 	public static final double IVA = 0.21;
 

@@ -2,7 +2,7 @@ package flujodedatosejercicios;
 
 import java.util.Scanner;
 
-public class Ejercicio4App {
+public class Ejercicio04App {
 
 	public static void main(String[] args) {
 		

@@ -1,6 +1,6 @@
 package flujodedatosejercicios;
 
-public class Ejercicio7App {
+public class Ejercicio07App {
 
 	public static void main(String[] args) {
 		//Defino una variable
