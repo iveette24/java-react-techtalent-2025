@@ -27,11 +27,11 @@ public class Ejercicio10App {
 
 			// Double.parseDouble(ventaInput) convierte la cadena de texto
 			// introducida en un número double.
-			double venta = Double.parseDouble(ventaInput);
+			double ventasdeldia = Double.parseDouble(ventaInput);
 
 			// sumaVentas += venta; agrega la venta actual a
-			// la suma total de ventas.
-			sumaVentas += venta;
+			// la suma total de ventas. Que como se repite, se sumarán todas las ventas x veces (numVentas).
+			sumaVentas += ventasdeldia;
 		}
 
 		// Mostrar la suma total de las ventas
