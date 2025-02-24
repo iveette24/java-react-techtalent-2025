@@ -28,6 +28,9 @@ public class EjercicioExtra1App {
 			// divisible por cualquier número desde 2 hasta la raíz
 			// cuadrada del número. Si es divisible por alguno de estos
 			// números, se marca como no primo.
+			//Se utiliza el i++ porque se incrementa en 1 la variable i, ya 
+			//que se va a comprobar si el número es divisible por cada número 
+			//desde 2 hasta la raíz cuadrada del número.
 			for (int i = 2; i <= Math.sqrt(num); i++) {
 				if (num % i == 0) {
 					esPrimo = false;
