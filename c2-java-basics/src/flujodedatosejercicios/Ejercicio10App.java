@@ -29,8 +29,9 @@ public class Ejercicio10App {
 			// introducida en un número double.
 			double ventasdeldia = Double.parseDouble(ventaInput);
 
-			// sumaVentas += venta; agrega la venta actual a
-			// la suma total de ventas. Que como se repite, se sumarán todas las ventas x veces (numVentas).
+			// sumaVentas += ventasdeldia; agrega la venta actual a
+			// la suma total de ventas. Que como se repite, se sumarán 
+			//todas las ventas x veces (numVentas).
 			sumaVentas += ventasdeldia;
 		}
 

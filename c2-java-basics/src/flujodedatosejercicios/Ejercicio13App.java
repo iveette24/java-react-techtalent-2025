@@ -38,6 +38,8 @@ public class Ejercicio13App {
 		case "%":
 			resultado = num1 % num2;
 			JOptionPane.showInputDialog("El resultado de la operación es: " + resultado);
+		default:
+			JOptionPane.showMessageDialog(null, "El valor introducido no es válido");
 
 		}
 

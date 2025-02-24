@@ -12,25 +12,25 @@ public class Ejercicio11App {
 
 		switch (dia) {
 		case "lunes":
-			JOptionPane.showMessageDialog(null, "Hoy es Lunes, es un dia laboral.");
+			JOptionPane.showMessageDialog(null, "Hoy es Lunes, es un día laboral.");
 			break;
 		case "martes":
-			JOptionPane.showMessageDialog(null, "Hoy es Martes, es un dia laboral.");
+			JOptionPane.showMessageDialog(null, "Hoy es Martes, es un día laboral.");
 			break;
 		case "miércoles":
-			JOptionPane.showMessageDialog(null, "Hoy es Miércoles, es un dia laboral.");
+			JOptionPane.showMessageDialog(null, "Hoy es Miércoles, es un día laboral.");
 			break;
 		case "jueves":
-			JOptionPane.showMessageDialog(null, "Hoy es Jueves, es un dia laboral.");
+			JOptionPane.showMessageDialog(null, "Hoy es Jueves, es un día laboral.");
 			break;
 		case "viernes":
-			JOptionPane.showMessageDialog(null, "Hoy es Viernes, es un dia laboral.");
+			JOptionPane.showMessageDialog(null, "Hoy es Viernes, es un día laboral.");
 			break;
 		case "sábado":
-			JOptionPane.showMessageDialog(null, "Hoy es Sábado, es un dia laboral.");
+			JOptionPane.showMessageDialog(null, "Hoy es Sábado, es un día no laboral.");
 			break;
 		case "domingo":
-			JOptionPane.showMessageDialog(null, "Hoy es Domingo, es un dia laboral.");
+			JOptionPane.showMessageDialog(null, "Hoy es Domingo, es un día no laboral.");
 			break;
 		default:
 			JOptionPane.showMessageDialog(null, "Día no válido. Escríbelo de forma correcta, gracias.");
