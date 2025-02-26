@@ -1,52 +1,54 @@
 package métodosyarraysejercicios;
 
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Ejercicio1App {
 
 	public static void main(String[] args) {
-		// Repetirlo hecho por mi
+		// Creado por mi
 
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Seleccione la figura para calcular su área:");
-		System.out.println("1. Círculo");
-		System.out.println("2. Cuadrado");
-		System.out.println("3. Triángulo");
-		int choice = scanner.nextInt();
+		boolean continuar = true;
 
-		switch (choice) {
-		case 1:
-			System.out.println("Introduzca el radio del círculo:");
-			double radius = scanner.nextDouble();
-			System.out.println("El área del círculo es: " + calculateCircleArea(radius));
-			break;
-		case 2:
-			System.out.println("Introduzca el lado del cuadrado:");
-			double side = scanner.nextDouble();
-			System.out.println("El área del cuadrado es: " + calculateSquareArea(side));
-			break;
-		case 3:
-			System.out.println("Introduzca la base del triángulo:");
-			double base = scanner.nextDouble();
-			System.out.println("Introduzca la altura del triángulo:");
-			double height = scanner.nextDouble();
-			System.out.println("El área del triángulo es: " + calculateTriangleArea(base, height));
-			break;
-		default:
-			System.out.println("Opción no válida.");
+		while (continuar) {
+
+			String figura = JOptionPane.showInputDialog(
+					"Introduce" + " el número de la figura: \n 1. Círculo \n " + "2. Triángulo \n 3. Cuadrado");
+
+			switch (figura) {
+			case "1":
+				double radio = Double.parseDouble(JOptionPane.showInputDialog("Introduce el radio: "));
+				JOptionPane.showMessageDialog(null, "El área del círculo es: " + circulo(radio));
+				continuar = false;
+				break;
+
+			case "2":
+				double base = Double.parseDouble(JOptionPane.showInputDialog("Introduce la base: "));
+				double altura = Double.parseDouble(JOptionPane.showInputDialog("Introduce la altura: "));
+				JOptionPane.showMessageDialog(null, "El área del triángulo es: " + triangulo(base, altura));
+				continuar = false;
+				break;
+
+			case "3":
+				double lado = Double.parseDouble(JOptionPane.showInputDialog("Introduce el lado: "));
+				JOptionPane.showMessageDialog(null, "El área del cuadrado es: " + cuadrado(lado));
+				continuar = false;
+				break;
+			default:
+				JOptionPane.showMessageDialog(null, "El valor introducido no es válido");
+			}
 		}
-		scanner.close();
 	}
 
-	public static double calculateCircleArea(double radius) {
-		return Math.PI * Math.pow(radius, 2);
+	public static double circulo(double radio) {
+		return (Math.pow(radio, 2) * Math.PI);
 	}
 
-	public static double calculateSquareArea(double side) {
-		return Math.pow(side, 2);
+	public static double triangulo(double base, double altura) {
+		return ((base * altura) / 2);
 	}
 
-	public static double calculateTriangleArea(double base, double height) {
-		return (base * height) / 2;
+	public static double cuadrado(double lado) {
+		return (lado * lado);
 	}
+
 }
