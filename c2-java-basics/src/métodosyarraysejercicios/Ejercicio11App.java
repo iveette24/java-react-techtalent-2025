@@ -20,14 +20,14 @@ public class Ejercicio11App {
 
 		// Imprimimos los valores de los arrays en el primer paso
 		System.out.println("En el primer paso, los valores del Array 1 son: " + Arrays.toString(array1));
-		System.out.println("En el primer paso, los valores del Array 2 son: " + Arrays.toString(array2));
+		System.out.println("En el primer paso, los valores del Array 2 son: " + Arrays.toString(array2) + "\n");
 
 		// Reasignamos el array2 como random
-		array2 = randomArray1(array2, dimension);
+		array2 = Array2Rand(array2, dimension);
 
 		// Imprimimos los valores de los arrays en el segundo paso
 		System.out.println("En el segundo paso, los valores del Array 1 son: " + Arrays.toString(array1));
-		System.out.println("En el segundo paso, los valores del Array 2 son: " + Arrays.toString(array2));
+		System.out.println("En el segundo paso, los valores del Array 2 son: " + Arrays.toString(array2) + "\n");
 
 		// Reasignamos el array3 del método de la multiplicación
 		array3 = multiplicacionArrays(array1, array2, dimension);
@@ -48,6 +48,19 @@ public class Ejercicio11App {
 			array1[i] = (int) (Math.random() * 100);
 		}
 		return array1;
+	}
+
+	public static int[] Array2Rand(int[] array2, int dimension) {
+		int[] array2rand = new int[dimension];
+		int[] random = new int[dimension];
+
+		for (int i = 0; i < dimension; i++) {
+			random[i] = (int) ((Math.random() * 5)+1);
+			// Números aleatorios hasta el 5
+			array2rand[i] = array2[i] * random[i];
+		}
+
+		return array2rand;
 	}
 
 	public static int[] multiplicacionArrays(int[] array1, int[] array2, int dimension) {
