@@ -1,58 +1,63 @@
-
 package métodosyarraysejercicios;
 
 import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
 public class Ejercicio11App2 {
 
 	public static void main(String[] args) {
-		
+
+		// Inicializamos variables
 		int dimension = Integer.parseInt(JOptionPane.showInputDialog("Introduce la dimensión de los arrays: "));
-		
-		// Crear el primer array con la dimensión especificada
 		int[] array1 = new int[dimension];
-		// Hacer que el segundo array apunte al primero
-		int[] array2 = array1;
-		
-		int random = (int)(Math.random()*100);
-		
+		int[] array2 = new int[dimension];
+		int[] array3 = new int[dimension];
 
-		// Crear un objeto Random para generar números aleatorios
-		Random random = new Random();
-		// Llenar el primer array con números aleatorios
-		for (int i = 0; i < dimension; i++) {
-			array1[i] = random.nextInt(101); // Números aleatorios entre 0 y 99
-		}
+		// Relacionamos el array 1 con el array 2
+		array1 = randomArray1(array1, dimension);
+		array2 = array1;
 
-		// Reasignar el segundo array a un nuevo array con la misma dimensión
-		array2 = new int[dimension];
-		// Llenar el segundo array con números aleatorios
-		for (int i = 0; i < dimension; i++) {
-			array2[i] = random.nextInt(100); // Números aleatorios entre 0 y 99
-		}
+		// Imprimimos los valores de los arrays en el primer paso
+		System.out.println("En el primer paso, los valores del Array 1 son: " + Arrays.toString(array1));
+		System.out.println("En el primer paso, los valores del Array 2 son: " + Arrays.toString(array2));
 
-		// Llamar al método multiplyArrays para obtener el array resultante
-		int[] resultArray = multiplyArrays(array1, array2);
+		// Reasignamos el array2 como random
+		array2 = randomArray1(array2, dimension);
 
-		// Mostrar el contenido de los tres arrays
-		System.out.println("Array 1: " + Arrays.toString(array1));
-		System.out.println("Array 2: " + Arrays.toString(array2));
-		System.out.println("Result Array: " + Arrays.toString(resultArray));
+		// Imprimimos los valores de los arrays en el segundo paso
+		System.out.println("En el segundo paso, los valores del Array 1 son: " + Arrays.toString(array1));
+		System.out.println("En el segundo paso, los valores del Array 2 son: " + Arrays.toString(array2));
+
+		// Reasignamos el array3 del método de la multiplicación
+		array3 = multiplicacionArrays(array1, array2, dimension);
+
+		// Imprimimos los valores de los arrays en el tercer paso
+		System.out.println("En el tercer paso, los valores del Array 1 son: " + Arrays.toString(array1));
+		System.out.println("En el tercer paso, los valores del Array 2 son: " + Arrays.toString(array2));
+		System.out.println("En el tercer paso, los valores del Array 3 son: " + Arrays.toString(array3));
+
 	}
 
-	// Método que multiplica los elementos de dos arrays y devuelve un nuevo array
-	public static int[] multiplyArrays(int[] array1, int[] array2) {
-		// Crear un nuevo array para almacenar los resultados
-		int[] resultArray = new int[array1.length];
-		// Multiplicar los elementos de los dos arrays
-		for (int i = 0; i < array1.length; i++) {
-			resultArray[i] = array1[i] * array2[i];
+	public static int[] randomArray1(int[] array1, int dimension) {
+
+		// Crear un método que haga que los arrays sean creados random
+		array1 = new int[dimension];
+
+		for (int i = 0; i < dimension; i++) {
+			array1[i] = (int) (Math.random() * 100);
 		}
-		// Devolver el array resultante
-		return resultArray;
+		return array1;
+	}
+
+	public static int[] multiplicacionArrays(int[] array1, int[] array2, int dimension) {
+
+		// Crear un método que multiplique cada posición del array1 por la misma del
+		// array2 y que se guarde en array3
+		int[] array3 = new int[dimension];
+		for (int i = 0; i < dimension; i++) {
+			array3[i] = array1[i] * array2[i];
+		}
+		return array3;
 	}
 }
