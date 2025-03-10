@@ -8,36 +8,31 @@ public class Ejercicio12App {
 
 	public static void main(String[] args) {
 		int dimension = Integer.parseInt(JOptionPane.showInputDialog("Introduce la dimensión del array: "));
+		// Pedimos la dimensión del array
 		int[] array1 = new int[dimension];
-		// Ninguna acción
-		array1 = randomArray1(array1, dimension);
+		// Creamos el array con la dimensión
 
-		// int[] array1 = randomArray1(dimension);
+		System.out.println("El array creado random es: " + Arrays.toString(randomArray1(array1)));
+		// Mostramos el array creado por el random
 
+		// Pedimos el último valor que se quiere mostrar
 		int numero = Integer.parseInt(JOptionPane.showInputDialog("Introduce el último valor que quieres: "));
 
-		int[] array2 = new int[0];
-		array2 = comparador(array1, numero);
-
-		System.out.println("Los numeros que acaban en " + numero + " son : " + Arrays.toString(array2));
-
-//		comparador(array1, numero);
-		// System.out.println(comparador(array1, numero));
-
-//		System.out.println("estos son los que acaban en " + numero + " : " + array1[i]);
+		System.out.println("El nuevo array creado con el valor final " + numero + " es: "
+				+ Arrays.toString(comparador(array1, numero)));
+// Imprimimos el nuevo array que contiene todos los valores random pero que acaban con el número introducido
 
 	}
 
-	public static int[] randomArray1(int[] array1, int dimension) {
+	public static int[] randomArray1(int[] array1) {
 
 		// Crear un método que haga que los arrays sean creados random
-		array1 = new int[dimension];
-		if (dimension <= 0) {
+		if (array1.length <= 0) {
 			JOptionPane.showMessageDialog(null, "La dimensión del array no es válida.");
 
 		} else {
 
-			for (int i = 0; i < dimension; i++) {
+			for (int i = 0; i < array1.length; i++) {
 				array1[i] = (int) (Math.random() * 300) + 1;
 			}
 		}
@@ -45,13 +40,33 @@ public class Ejercicio12App {
 	}
 
 	public static int[] comparador(int[] array1, int numero) {
-		int[] resultados = new int[array1.length];
-
+		// Contar cuántos números terminan en el dígito especificado
+		int count = 0;
 		for (int i = 0; i < array1.length; i++) {
-			resultados[i] = array1[i] % 10;
-
+			if (array1[i] % 10 == numero) {
+				count++;
+			}
 		}
 
-		return resultados;
+		// Crear un nuevo array para almacenar los números que terminan en el dígito
+		// especificado
+		int[] arrayFinal = new int[count];
+		int posicionNuevoArray = 0;
+		for (int i = 0; i < array1.length; i++) {
+			if (array1[i] % 10 == numero) {
+				arrayFinal[posicionNuevoArray++] = array1[i];
+				// Almacena el número en arrayFinal en la posición posicionNuevoArray y luego
+				// incrementa posicionNuevoArray en 1 para la próxima posición disponible.
+			}
+		}
+
+		// Imprimir un mensaje si no se encontraron números que terminan en el dígito
+		// especificado
+		if (count == 0) {
+			System.out.println("No hay ningún número con el valor " + numero);
+		}
+
+		return arrayFinal;
 	}
+
 }
