@@ -1,51 +1,42 @@
 
 package métodosyarraysejercicios;
 
-import java.util.Scanner;
 import java.util.Random;
+
+import javax.swing.JOptionPane;
 
 public class Ejercicio10App2 {
 
+	// Método principal
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		Random random = new Random();
+		// Pedir tamaño del array y los límites de los números primos
+		int tamano = Integer.parseInt(JOptionPane.showInputDialog("Introduce el tamaño del array: "));
+		int min = Integer.parseInt(JOptionPane.showInputDialog("Introduce el límite inferior: "));
+		int max = Integer.parseInt(JOptionPane.showInputDialog("Introduce el límite superior: "));
 
-		// Solicitar tamaño del array al usuario
-		System.out.print("Introduce el tamaño del array: ");
-		int size = scanner.nextInt();
+		int[] array = new int[tamano];
 
-		System.out.print("Introduce el límite inferior del rango: ");
-		int min = scanner.nextInt();
-
-		System.out.print("Introduce el límite superior del rango: ");
-		int max = scanner.nextInt();
-
-		// Crear el array y llenarlo con números primos aleatorios
-		int[] array = new int[size];
-		for (int i = 0; i < size; i++) {
-			int randomPrime;
-			do {
-				randomPrime = random.nextInt(max - min + 1) + min;
-			} while (!esPrimo(randomPrime));
-			array[i] = randomPrime;
+		// Rellenar el array con números primos aleatorios
+		for (int i = 0; i < tamano; i++) {
+			array[i] = generarNumeroPrimo(min, max);
 		}
 
-		// Encontrar el mayor número en el array
-		int maxNumber = array[0];
-		for (int num : array) {
-			if (num > maxNumber) {
-				maxNumber = num;
+		// Encontrar el mayor número del array
+		int mayor = array[0];
+		for (int i = 1; i < tamano; i++) {
+			if (array[i] > mayor) {
+				mayor = array[i];
 			}
 		}
 
-		// Imprimir resultados
-		System.out.print("Array de números primos generados: ");
+		// Mostrar los números y el mayor número
+		System.out.println("Números primos en el array:");
 		for (int num : array) {
 			System.out.print(num + " ");
 		}
-		System.out.println("\nEl número mayor es: " + maxNumber);
 
-		scanner.close();
+		System.out.println("\nEl mayor número primo es: " + mayor);
+
 	}
 
 	// Método para comprobar si un número es primo
@@ -60,4 +51,15 @@ public class Ejercicio10App2 {
 		}
 		return true;
 	}
+
+	// Método para generar un número primo aleatorio dentro de un rango
+	public static int generarNumeroPrimo(int min, int max) {
+		Random rand = new Random();
+		int num;
+		do {
+			num = rand.nextInt((max - min) + 1) + min;
+		} while (!esPrimo(num));
+		return num;
+	}
+
 }
