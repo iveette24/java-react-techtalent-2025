@@ -80,8 +80,9 @@ public class Ejercicio10App {
 			return false;
 		}
 
-		// Recorremos desde 2 hasta el número para verificar si tiene divisores
-		for (int i = 2; i <= num; i++) {
+		// Recorremos desde 2 hasta la raíz cuadrada del número para verificar si tiene
+		// divisores
+		for (int i = 2; i <= Math.sqrt(num); i++) {
 			// Si encontramos un divisor exacto, no es primo
 			if (num % i == 0) {
 				return false;
