@@ -33,25 +33,31 @@ public class Ejercicio02App {
 		}
 
 		System.out.println("El precio en bruto es: " + (Math.round(suma * 100.0) / 100.0));
-		System.out.println("Selecciona el IVA: \n1.21%\n2.4%");
+		System.out.println("\nSelecciona el IVA: \n1.21%\n2.4%");
 		int opcionIVA = sc.nextInt();
 
-		switch (opcionIVA) {
-		case 1:
-			double IVA1 = (Math.round(suma * 0.21) / 100.0);
-			System.out.println("El precio con el 21% de IVA es: " + (Math.round(suma + IVA1)/100));
-			break;
+		 switch (opcionIVA) {
+	        case 1:
+	            double IVA1 = suma * 0.21;
+	            System.out.println("El precio con el 21% de IVA es: " + (Math.round((suma + IVA1) * 1000.0) / 1000.0));
+	            break;
 
-		case 2:
-			double IVA2 = (Math.round(suma * 0.04) / 100.0);
-			System.out.println("El precio con el 4% de IVA es: " + (Math.round(suma + IVA2)));
-			break;
-		}
+	        case 2:
+	            double IVA2 = suma * 0.04;
+	            System.out.println("El precio con el 4% de IVA es: " + (Math.round((suma + IVA2) * 100.0) / 100.0));
+	            break;
+
+	        default:
+	            System.out.println("Opción de IVA no válida.");
+	            break;
+	    }
 	}
-//	54
-//	654
-//	1,5
-//	654,36
-//	54,65
-//	-1
-}
+
+	public static void resumen() {
+		System.out.println("--- Resumen de la compra ---");
+//		if (opcionIVA == 1) {
+		System.out.println();}
+	}
+
+	
+
