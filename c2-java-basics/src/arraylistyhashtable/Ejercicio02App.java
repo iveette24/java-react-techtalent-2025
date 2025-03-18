@@ -1,92 +1,88 @@
-
 package arraylistyhashtable;
 
+// Importamos las librerías necesarias
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ejercicio02App {
 
+	// Método principal: punto de inicio del programa
 	public static void main(String[] args) {
-		double IVA = 0.21;
-		Scanner sc = new Scanner(System.in);
-		ArrayList<Double> carrito = new ArrayList<>();
+		double IVA = 0.21; // Tasa de IVA inicial
+		Scanner sc = new Scanner(System.in); // Escáner para leer entradas del usuario
+		ArrayList<Double> carrito = new ArrayList<>(); // Lista para almacenar los precios
 
-		ingresePrecios(sc, carrito);
-		double[] resultados = seleccionarIVA(sc, carrito);
-		IVA = resultados[0];
-		double suma = resultados[1];
-		double totalconIVA = resultados[2];
-		resumen(IVA, suma, totalconIVA, carrito);
+		// Llamada a los métodos principales
+		ingresePrecios(sc, carrito); // Recopila precios de productos
+		double[] resultados = seleccionarIVA(sc, carrito); // Selección de IVA y cálculo de totales
+		IVA = resultados[0]; // Se actualiza el valor del IVA
+		double suma = resultados[1]; // Suma de los precios sin IVA
+		double totalconIVA = resultados[2]; // Total con IVA incluido
+		resumen(IVA, suma, totalconIVA, carrito); // Muestra resumen de la compra
+		pagoYcambio(sc, totalconIVA); // Gestiona el pago y cambio
 	}
 
+	// Método para ingresar precios de los productos
 	public static void ingresePrecios(Scanner sc, ArrayList<Double> carrito) {
 		System.out.println("Ingrese el precio de los productos uno por uno (digite -1 para terminar):");
 		while (true) {
-			double precio = sc.nextDouble();
-			if (precio == -1) {
+			double precio = sc.nextDouble(); // Lee el precio ingresado
+			if (precio == -1) { // Finaliza cuando el precio es -1
 				break;
 			}
-			carrito.add(precio);
+			carrito.add(precio); // Añade el precio a la lista
 		}
 	}
 
+	// Método para seleccionar IVA y calcular totales
 	public static double[] seleccionarIVA(Scanner sc, ArrayList<Double> carrito) {
-		double suma = 0;
-		for (double precio : carrito) {
-			suma += precio;
+		double suma = 0; // Inicializa la suma de los precios
+		for (double precio : carrito) { // Recorre la lista de precios
+			suma += precio; // Acumula los precios
 		}
 
 		System.out.println("El precio en bruto es: " + (Math.round(suma * 100.0) / 100.0));
 		System.out.println("\nSelecciona el IVA: \n1. 21%\n2. 4%");
-		int opcionIVA = sc.nextInt();
+		int opcionIVA = sc.nextInt(); // Lee la opción del usuario
 
-		double IVA = 0;
-		double totalconIVA = 0;
+		double IVA = 0; // Inicializa el IVA
+		double totalconIVA = 0; // Inicializa el total con IVA
 		switch (opcionIVA) {
 		case 1:
-			IVA = 0.21;
-			totalconIVA = suma * (1 + IVA);
+			IVA = 0.21; // Si elige 21% de IVA
+			totalconIVA = suma * (1 + IVA); // Calcula total con IVA
 			System.out.println("El precio con el 21% de IVA es: " + (Math.round(totalconIVA * 100.0) / 100.0));
 			break;
 		case 2:
-			IVA = 0.04;
-			totalconIVA = suma * (1 + IVA);
+			IVA = 0.04; // Si elige 4% de IVA
+			totalconIVA = suma * (1 + IVA); // Calcula total con IVA
 			System.out.println("El precio con el 4% de IVA es: " + Math.round(totalconIVA * 100.0) / 100.0);
 			break;
 		default:
-			System.out.println("Opción de IVA no válida.");
+			System.out.println("Opción de IVA no válida."); // Error si la opción no es válida
 			break;
 		}
-		return new double[] { IVA, suma, totalconIVA };
+		return new double[] { IVA, suma, totalconIVA }; // Retorna los valores calculados
 	}
 
+	// Método para mostrar un resumen de la compra
 	public static void resumen(double IVA, double suma, double totalconIVA, ArrayList<Double> carrito) {
-		System.out.println("--- Resumen de la compra ---");
-		System.out.println("IVA aplicado: " + (IVA * 100) + "%");
-		System.out.println("Precio bruto: " + (Math.round(suma * 100.0) / 100.0));
-		System.out.println("Precio total (con IVA): " + (Math.round(totalconIVA * 100.0) / 100.0));
-		System.out.println("Número de artículos comprados: " + carrito.size());
+		System.out.println("\n--- Resumen de la compra ---");
+		System.out.println("IVA aplicado: " + (IVA * 100) + "%"); // Muestra el IVA aplicado
+		System.out.println("Precio bruto: " + (Math.round(suma * 100.0) / 100.0)); // Precio sin IVA
+		System.out.println("Precio total (con IVA): " + (Math.round(totalconIVA * 100.0) / 100.0)); // Total con IVA
+		System.out.println("Número de artículos comprados: " + carrito.size()); // Número de productos
 	}
-	
+
+	// Método para gestionar el pago y calcular el cambio
 	public static void pagoYcambio(Scanner sc, double totalconIVA) {
 		System.out.println("Ingrese la cantidad pagada por el cliente: ");
-		double pago = sc.nextDouble();
-		double cambio = pago-totalconIVA;
-		if(cambio<0) {
-			System.out.println("Falta "+cambio+" por pagar.");
+		double pago = sc.nextDouble(); // Lee la cantidad pagada
+		double cambio = Math.round((pago - totalconIVA) * 100.0) / 100.0; // Calcula el cambio redondeado
+		if (cambio < 0) { // Verifica si falta dinero
+			System.out.println("Falta " + cambio + " por pagar.");
+		} else {
+			System.out.println("Cambio a devolver: " + cambio + " €"); // Muestra el cambio a devolver
 		}
-		System.out.println("Cambio a devolver: "+ cambio+" ");
 	}
-
 }
-
-
-//
-//--- Resumen de la compra ---
-//IVA aplicado: 4.0%
-//Precio bruto: 2647.0€
-//Precio total (con IVA): 2752.88€
-//Número de artículos comprados: 5
-//Ingrese la cantidad pagada por el cliente: 3000
-//Cambio a devolver: 247.12€
-
