@@ -58,7 +58,7 @@ public class App01notaMedia {
 
 		// Mostramos las notas de los alumnos almacenadas en el HashMap
 		System.out.println("Notas de los alumnos:");
-		System.out.println(DatosAlumnos); // Imprime el contenido completo del HashMap
+		System.out.println(DatosAlumnos + "\n"); // Imprime el contenido completo del HashMap
 	}
 
 	// Método para calcular y mostrar la nota media de cada alumno
