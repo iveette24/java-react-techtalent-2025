@@ -40,60 +40,12 @@ public class ej01persona {
 		this.altura = altura;
 	}
 
-	// Getters and Setters
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public int getEdad() {
-		return edad;
-	}
-
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
-
-	public String getDNI() {
-		return DNI;
-	}
-
-	public void setDNI(String DNI) {
-		this.DNI = DNI;
-	}
-
-	public void setSexo(char sexo) {
-		this.sexo = sexo;
-	}
-
-	public double getPeso() {
-		return peso;
-	}
-
-	public void setPeso(double peso) {
-		this.peso = peso;
-	}
-
-	public double getAltura() {
-		return altura;
-	}
-
-	public void setAltura(double altura) {
-		this.altura = altura;
-	}
 
 	public void pordefecto() {
-		System.out.println("Datos de la persona por defecto: ");
-		System.out.println("Nombre: " + nombre + "\nEdad: " + edad + "\nDNI: " + DNI + "\nSexo: " + sexo + "\nPeso: "
+		System.out.println("\nDatos de "+nombre+": ");
+		System.out.println("Edad: " + edad + "\nDNI: " + DNI + "\nSexo: " + sexo + "\nPeso: "
 				+ peso + "\nAltura: " + altura);
 	}
 
-	public void dosparametros() {
-		System.out.println("Datos de la persona con dos parámetros: ");
-		System.out.println("Nombre: " + nombre + "\nEdad: " + edad + "\nDNI: " + DNI + "\nSexo: " + sexo + "\nPeso: "
-				+ peso + "\nAltura: " + altura);
-	}
+
 }
