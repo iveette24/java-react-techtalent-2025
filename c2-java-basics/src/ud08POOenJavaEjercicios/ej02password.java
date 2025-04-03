@@ -10,7 +10,7 @@ public class ej02password {
 	// Constructor por defecto
 	public ej02password() {
 		this.longitud = 8; // Longitud por defecto
-		this.contraseña = generarContraseña(longitud);
+		this.contraseña = "00000000";
 	}
 
 	// Constructor con longitud específica
