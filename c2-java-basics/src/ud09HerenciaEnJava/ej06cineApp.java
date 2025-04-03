@@ -15,7 +15,7 @@ public class ej06cineApp {
 		Random random = new Random();
 
 		// Generar espectadores aleatorios
-		String[] nombres = { "Ivette", "Paula", "Marc" };
+		String[] nombres = { "Ivette", "Carlos", "Ana" };
 		for (String nombre : nombres) {
 			espectadores.add(new Espectador(nombre, random.nextInt(50) + 5, random.nextDouble() * 20));
 		}
@@ -23,14 +23,22 @@ public class ej06cineApp {
 		Scanner scanner = new Scanner(System.in);
 
 		for (Espectador espectador : espectadores) {
-			cine.mostrarAsientos();
-			System.out.println("\n" + espectador.nombre + " (Edad: " + espectador.edad + ", Dinero: "
-					+ espectador.dinero + ") quiere elegir un asiento.");
-			System.out.print("Introduce la fila: ");
-			int fila = scanner.nextInt();
-			System.out.print("Introduce la columna (A-I): ");
-			char columna = scanner.next().charAt(0);
-			cine.sentarEspectador(espectador, fila, columna);
+			cine.ej06cine.mostrarDetalles();
+
+			// Verificar si el espectador cumple los requisitos antes de preguntarle por el
+			// asiento
+			if (cine.puedeEntrar(espectador)) {
+				cine.mostrarAsientos();
+				System.out.println("\n" + espectador.nombre + " (Edad: " + espectador.edad + ", Dinero: "
+						+ espectador.dinero + ") puede elegir un asiento.");
+				System.out.print("Introduce la fila: ");
+				int fila = scanner.nextInt();
+				System.out.print("Introduce la columna (A-I): ");
+				char columna = scanner.next().charAt(0);
+				cine.sentarEspectador(espectador, fila, columna);
+			} else {
+				System.out.println(espectador.nombre + " no puede elegir asiento.\n");
+			}
 		}
 
 		scanner.close();
