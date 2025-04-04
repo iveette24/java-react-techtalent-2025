@@ -1,17 +1,32 @@
-
 package ud07ArrayListYHashMapEjercicios;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.util.*;
 
-public class ej04combinacion2y3App {
-	
+public class Ejercicio04App2 {
+	private static final Scanner scanner = new Scanner(System.in);
+	private static final HashMap<String, HashMap<String, Double>> inventario = new HashMap<>();
+	private static final ArrayList<Double> carrito = new ArrayList<>();
+
 	public static void main(String[] args) {
-<<<<<<< HEAD
 		inicializarInventario();
 		elegirModo();
 	}
 
-	// Inicialitza la llista de productes amb inventari preus
+	// 🔹 Menú para elegir entre Administrador o Usuario
+	private static void elegirModo() {
+		String[] opciones = { "Administrador", "Usuario", "Salir" };
+		int opcion = JOptionPane.showOptionDialog(null, "Selecciona el modo de acceso:", "Modo de acceso",
+				JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
+
+		switch (opcion) {
+		case 0 -> mostrarMenuStock(); // Modo Administrador (Gestión de Stock)
+		case 1 -> mostrarMenuCompras(); // Modo Usuario (Ventas)
+		case 2 -> System.exit(0); // Salir de la aplicación
+		}
+	}
+
+	// 🔹 Inicializa el inventario con productos, precios y stock
 	private static void inicializarInventario() {
 		agregarProducto("Manzana", 0.99, 50);
 		agregarProducto("Leche", 1.49, 30);
@@ -20,20 +35,7 @@ public class ej04combinacion2y3App {
 		agregarProducto("Huevos", 3.50, 60);
 	}
 
-	// Menú per escollir entre usuari i administrador
-	private static void elegirModo() {
-		String[] opciones = { "Administrador", "Usuario", "Salir" };
-		int opcion = JOptionPane.showOptionDialog(null, "Selecciona el modo de acceso:", "Modo de acceso",
-				JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
-	
-		switch (opcion) {
-		case 0 -> mostrarMenuStock();
-		case 1 -> mostrarMenuCompras();
-		case 2 -> System.exit(0);
-		}
-	}
-
-	// Menú administrador amb scanner
+	// 🔹 Menú de Administrador (Gestión de Stock con Scanner)
 	private static void mostrarMenuStock() {
 		int opcion;
 		do {
@@ -49,13 +51,13 @@ public class ej04combinacion2y3App {
 			case 1 -> listarProductos();
 			case 2 -> consultarProducto();
 			case 3 -> añadirOActualizarProducto();
-			case 4 -> elegirModo(); // Això torna al menú principal
+			case 4 -> elegirModo(); // Volver al menú principal
 			default -> System.out.println("Opción no válida.");
 			}
 		} while (opcion != 4);
 	}
 
-	// Menú de compres amb JOptionPane
+	// 🔹 Menú de Usuario (Compras con JOptionPane)
 	private static void mostrarMenuCompras() {
 		String[] opciones = { "Agregar producto al carrito", "Finalizar compra", "Volver al menú principal" };
 		boolean seguirComprando = true;
@@ -151,10 +153,7 @@ public class ej04combinacion2y3App {
 			return;
 		}
 
-		double suma = 0;
-		for (double precio : carrito) {
-			suma += precio;
-		}
+		double suma = carrito.stream().mapToDouble(Double::doubleValue).sum();
 		String[] opcionesIVA = { "21%", "4%" };
 		int opcionIVA = JOptionPane.showOptionDialog(null, "Selecciona el IVA:", "IVA", JOptionPane.DEFAULT_OPTION,
 				JOptionPane.INFORMATION_MESSAGE, null, opcionesIVA, opcionesIVA[0]);
@@ -162,8 +161,8 @@ public class ej04combinacion2y3App {
 		double IVA = opcionIVA == 0 ? 0.21 : 0.04;
 		double totalConIVA = suma * (1 + IVA);
 
-		double pago = Double.parseDouble(
-				JOptionPane.showInputDialog("Total: " + String.format("%.2f", totalConIVA) + "€. Introduce el pago:"));
+		double pago = Double
+				.parseDouble(JOptionPane.showInputDialog("Total: " + totalConIVA + "€. Introduce el pago:"));
 		double cambio = pago - totalConIVA;
 
 		if (cambio < 0) {
@@ -193,16 +192,5 @@ public class ej04combinacion2y3App {
 		double valor = scanner.nextDouble();
 		scanner.nextLine();
 		return valor;
-=======
-		String[] opciones = { "Administrador", "Usuario", "Salir" };
-		int opcion = JOptionPane.showOptionDialog(null, "Selecciona el modo de acceso:", "Modo de acceso",
-				JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
-
-//		switch (opcion) {
-//		case 0 -> mostrarMenuStock(); // Modo Administrador (Gestión de Stock)
-//		case 1 -> mostrarMenuCompras(); // Modo Usuario (Ventas)
-//		case 2 -> System.exit(0); // Salir de la aplicación
-//		}
->>>>>>> parent of 6ed3cfb (puto marc)
 	}
 }
