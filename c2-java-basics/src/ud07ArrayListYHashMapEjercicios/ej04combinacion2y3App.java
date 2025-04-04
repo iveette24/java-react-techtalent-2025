@@ -1,12 +1,14 @@
-
 package ud07ArrayListYHashMapEjercicios;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.util.*;
 
 public class ej04combinacion2y3App {
-	
+	private static final Scanner scanner = new Scanner(System.in);
+	private static final HashMap<String, HashMap<String, Double>> inventario = new HashMap<>();
+	private static final ArrayList<Double> carrito = new ArrayList<>();
+
 	public static void main(String[] args) {
-<<<<<<< HEAD
 		inicializarInventario();
 		elegirModo();
 	}
@@ -193,16 +195,5 @@ public class ej04combinacion2y3App {
 		double valor = scanner.nextDouble();
 		scanner.nextLine();
 		return valor;
-=======
-		String[] opciones = { "Administrador", "Usuario", "Salir" };
-		int opcion = JOptionPane.showOptionDialog(null, "Selecciona el modo de acceso:", "Modo de acceso",
-				JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
-
-//		switch (opcion) {
-//		case 0 -> mostrarMenuStock(); // Modo Administrador (Gestión de Stock)
-//		case 1 -> mostrarMenuCompras(); // Modo Usuario (Ventas)
-//		case 2 -> System.exit(0); // Salir de la aplicación
-//		}
->>>>>>> parent of 6ed3cfb (puto marc)
 	}
-}
+} 

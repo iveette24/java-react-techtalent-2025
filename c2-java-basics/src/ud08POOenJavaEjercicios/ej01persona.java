@@ -8,7 +8,6 @@ public class ej01persona {
 	private char sexo;
 	private double peso;
 	private double altura;
-	
 
 	public ej01persona() {
 		this.nombre = "";
@@ -18,8 +17,8 @@ public class ej01persona {
 		this.altura = 0;
 
 	}
-	
-	public ej01persona(String nombre,int edad, char sexo) {
+
+	public ej01persona(String nombre, int edad, char sexo) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.DNI = "";
@@ -28,41 +27,26 @@ public class ej01persona {
 		this.altura = 0;
 
 	}
-	
-	public ej01persona(String nombre,int edad, String DNI, char sexo, double peso, double altura) {
+
+	public ej01persona(String nombre, int edad, String DNI, char sexo, double peso, double altura) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.DNI = DNI;
 		this.sexo = sexo;
 		this.peso = peso;
 		this.altura = altura;
-
-<<<<<<< HEAD
+	}
 
 	public void pordefecto() {
-		System.out.println("\nDatos de "+nombre+": ");
-		System.out.println("Edad: " + edad + "\nDNI: " + DNI + "\nSexo: " + sexo + "\nPeso: "
+		System.out.println("\nDatos de " + nombre + ": ");
+		System.out.println(
+				"Edad: " + edad + "\nDNI: " + DNI + "\nSexo: " + sexo + "\nPeso: " + peso + "\nAltura: " + altura);
+	}
+
+	public void dosparametros() {
+		System.out.println("Datos de la persona por defecto: ");
+		System.out.println("Nombre: " + nombre + "\nEdad: " + edad + "\nDNI: " + DNI + "\nSexo: " + sexo + "\nPeso: "
 				+ peso + "\nAltura: " + altura);
-	}
 
-
-=======
 	}
-	
-	public void pordefecto () {
-		System.out.println("Datos de la persona por defecto: ");
-		System.out.println("Nombre: "+nombre+"\nEdad: "+edad+"\nDNI: "+DNI+"\nSexo: "+sexo+"\nPeso: "+peso+"\nAltura: "+altura);
-
-		
-	}
-	
-	public void dosparametros () {
-		System.out.println("Datos de la persona por defecto: ");
-		System.out.println("Nombre: "+nombre+"\nEdad: "+edad+"\nDNI: "+DNI+"\nSexo: "+sexo+"\nPeso: "+peso+"\nAltura: "+altura);
-
-		
-	}
-	
-	
->>>>>>> parent of 6ed3cfb (puto marc)
 }
