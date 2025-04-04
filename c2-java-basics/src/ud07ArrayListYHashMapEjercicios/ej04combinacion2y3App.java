@@ -196,4 +196,4 @@ public class ej04combinacion2y3App {
 		scanner.nextLine();
 		return valor;
 	}
-} 
+}  
