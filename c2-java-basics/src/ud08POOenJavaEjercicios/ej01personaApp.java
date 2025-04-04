@@ -6,7 +6,7 @@ public class ej01personaApp {
 
 		ej01persona Persona = new ej01persona();
 		ej01persona Persona1 = new ej01persona("Mario", 27, 'H');
-		ej01persona Persona2 = new ej01persona("Ivette", 19, "49315995Q", 'M', 58, 1.58);
+		ej01persona Persona2 = new ej01persona("Ivette", 19, "35638006Q", 'M', 58, 1.58);
 
 		Persona.pordefecto();
 		Persona1.pordefecto();

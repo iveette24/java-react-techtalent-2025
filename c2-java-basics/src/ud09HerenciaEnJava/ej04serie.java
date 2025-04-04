@@ -1,4 +1,4 @@
-package ud08POOenJavaEjercicios;
+package ud09HerenciaEnJava;
 
 public class ej04serie {
 
