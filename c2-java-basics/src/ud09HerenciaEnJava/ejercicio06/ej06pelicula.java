@@ -41,27 +41,6 @@ public class ej06pelicula {
 		return precioEntrada; // Devuelve el precio de la entrada
 	}
 
-	// Métodos "setter" para modificar los valores de los atributos si es necesario
-	public void setTitulo(String titulo) {
-		this.titulo = titulo; // Cambia el título de la película
-	}
-
-	public void setDuracion(int duracion) {
-		this.duracion = duracion; // Cambia la duración de la película
-	}
-
-	public void setEdadMinima(int edadMinima) {
-		this.edadMinima = edadMinima; // Cambia la edad mínima requerida
-	}
-
-	public void setDirector(String director) {
-		this.director = director; // Cambia el nombre del director
-	}
-
-	public void setPrecioEntrada(double precioEntrada) {
-		this.precioEntrada = precioEntrada; // Cambia el precio de la entrada
-	}
-
 	// Método que muestra la información de la película en una ventana emergente con
 	// JOptionPane
 	public void mostrarInformacion() {
