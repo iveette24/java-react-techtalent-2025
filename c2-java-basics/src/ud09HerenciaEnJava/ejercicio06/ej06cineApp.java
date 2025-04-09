@@ -1,4 +1,4 @@
-package ud09HerenciaEnJava;
+package ud09HerenciaEnJava.ejercicio06;
 
 import javax.swing.JOptionPane;
 
