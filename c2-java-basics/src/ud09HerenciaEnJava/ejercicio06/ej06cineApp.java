@@ -40,9 +40,11 @@ public class ej06cineApp {
 					if (sala.reservarAsiento(fila, columna)) {
 						JOptionPane.showMessageDialog(null,
 								espectador.getNombre() + " ha reservado el asiento " + fila + columna);
+						// Mostrar la sala con los asientos ocupados antes de que el espectador elija
+						sala.mostrarSala();
 						asientoReservado = true;
 					} else {
-						JOptionPane.showMessageDialog(null, "El asiento está ocupado, intenta otro.");
+						JOptionPane.showMessageDialog(null, "Inténtalo de nuevo.");
 					}
 				}
 			}
@@ -50,5 +52,7 @@ public class ej06cineApp {
 
 		// Mostrar el estado final de la sala después de todas las reservas
 		sala.mostrarSala();
+		JOptionPane.showMessageDialog(null, "Muchas gracias, disfrutad de la película.");
 	}
+
 }
