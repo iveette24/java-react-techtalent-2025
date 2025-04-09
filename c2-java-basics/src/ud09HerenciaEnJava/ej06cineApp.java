@@ -1,46 +1,54 @@
 package ud09HerenciaEnJava;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class ej06cineApp {
 	public static void main(String[] args) {
+		// Crear la sala de cine y la película
+		ej06asientos sala = new ej06asientos();
+		ej06pelicula pelicula = new ej06pelicula("Interstellar", 169, 12, "Christopher Nolan", 8.5);
 
-		ej06cine Pelicula = new ej06cine("Interstellar", 169, 12, "Christopher Nolan");
-		Cine cine = new Cine(Pelicula, 10.0, 8, 9);
+		// Crear los espectadores
+		ej06espectador[] espectadores = { new ej06espectador("Ana", 15, 10), new ej06espectador("Luis", 10, 5),
+				new ej06espectador("Carlos", 18, 20), new ej06espectador("Marta", 25, 50),
+				new ej06espectador("Pedro", 12, 8) };
 
-		List<Espectador> espectadores = new ArrayList<>();
-		Random random = new Random();
+		// Mostrar la información de la película antes de empezar
+		pelicula.mostrarInformacion();
 
-		// Generar espectadores aleatorios
-		String[] nombres = { "Ivette", "Carlos", "Ana" };
-		for (String nombre : nombres) {
-			espectadores.add(new Espectador(nombre, random.nextInt(50) + 5, random.nextDouble() * 20));
-		}
+		// Cada espectador tendrá su turno para elegir un asiento
+		for (ej06espectador espectador : espectadores) {
+			JOptionPane.showMessageDialog(null, "Turno de: " + espectador.getNombre() + " - Edad: "
+					+ espectador.getEdad() + " -  Dinero: " + espectador.getDinero());
 
-		Scanner scanner = new Scanner(System.in);
+			// Mostrar la sala con los asientos ocupados antes de que el espectador elija
+			sala.mostrarSala();
 
-		for (Espectador espectador : espectadores) {
-			cine.ej06cine.mostrarDetalles();
+			// Verificar si el espectador cumple con la edad mínima y puede pagar la entrada
+			if (espectador.cumpleEdadMinima(pelicula.getEdadMinima())
+					&& espectador.puedePagarEntrada(pelicula.getPrecioEntrada())) {
+				boolean asientoReservado = false;
 
-			// Verificar si el espectador cumple los requisitos antes de preguntarle por el
-			// asiento
-			if (cine.puedeEntrar(espectador)) {
-				cine.mostrarAsientos();
-				System.out.println("\n" + espectador.nombre + " (Edad: " + espectador.edad + ", Dinero: "
-						+ espectador.dinero + ") puede elegir un asiento.");
-				System.out.print("Introduce la fila: ");
-				int fila = scanner.nextInt();
-				System.out.print("Introduce la columna (A-I): ");
-				char columna = scanner.next().charAt(0);
-				cine.sentarEspectador(espectador, fila, columna);
-			} else {
-				System.out.println(espectador.nombre + " no puede elegir asiento.\n");
+				while (!asientoReservado) {
+					// Pedir fila y columna al usuario
+					int fila = Integer
+							.parseInt(JOptionPane.showInputDialog("Fila (1-8) para " + espectador.getNombre() + ":"));
+					char columna = JOptionPane.showInputDialog("Columna (A-I) para " + espectador.getNombre() + ":")
+							.toUpperCase().charAt(0);
+
+					// Intentar reservar el asiento
+					if (sala.reservarAsiento(fila, columna)) {
+						JOptionPane.showMessageDialog(null,
+								espectador.getNombre() + " ha reservado el asiento " + fila + columna);
+						asientoReservado = true;
+					} else {
+						JOptionPane.showMessageDialog(null, "El asiento está ocupado, intenta otro.");
+					}
+				}
 			}
 		}
 
-		scanner.close();
+		// Mostrar el estado final de la sala después de todas las reservas
+		sala.mostrarSala();
 	}
 }
