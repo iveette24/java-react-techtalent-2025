@@ -1,6 +1,6 @@
-package ud09HerenciaEnJava;
+package ud09HerenciaEnJava.ejercicio02;
 
-public class ej04serie {
+public class ej02serie implements ej02entregable {
 
 	private String titulo;
 	private int temporadas;
@@ -11,7 +11,7 @@ public class ej04serie {
 	private static final int TEMPORADAS_DEFECTO = 3;
 	private static final boolean ENTREGADO_DEFECTO = false;
 
-	public ej04serie() {
+	public ej02serie() {
 		this.titulo = "";
 		this.temporadas = TEMPORADAS_DEFECTO;
 		this.entregado = ENTREGADO_DEFECTO;
@@ -19,7 +19,7 @@ public class ej04serie {
 		this.creador = "";
 	}
 
-	public ej04serie(String titulo, String creador) {
+	public ej02serie(String titulo, String creador) {
 		this.titulo = titulo;
 		this.temporadas = TEMPORADAS_DEFECTO;
 		this.entregado = ENTREGADO_DEFECTO;
@@ -27,7 +27,7 @@ public class ej04serie {
 		this.creador = creador;
 	}
 
-	public ej04serie(String titulo, int temporadas, String genero, String creador) {
+	public ej02serie(String titulo, int temporadas, String genero, String creador) {
 		this.titulo = titulo;
 		this.temporadas = temporadas;
 		this.entregado = ENTREGADO_DEFECTO;
@@ -67,9 +67,35 @@ public class ej04serie {
 		this.creador = nuevoCreador;
 	}
 
-	public void datosSerie() {
-		System.out.println("Título: " + titulo + "\nTemporadas: " + temporadas + "\nEntregado: " + entregado
-				+ "\nGénero: " + genero + "\nCreador: " + creador + "\n");
+	@Override
+	public String toString() {
+		return "Título: " + titulo + "\nTemporadas: " + temporadas + "\nEntregado: " + entregado + "\nGénero: " + genero
+				+ "\nCreador: " + creador + "\n";
+
+	}
+
+	@Override
+	public void entregar() {
+		entregado = true;
+	}
+
+	@Override
+	public void devolver() {
+		entregado = false;
+	}
+
+	@Override
+	public boolean isEntregado() {
+		return entregado;
+	}
+
+	@Override
+	public int compareTo(Object a) {
+		if (a instanceof ej02serie) {
+			ej02serie otra = (ej02serie) a;
+			return Integer.compare(this.temporadas, otra.getTemporadas());
+		}
+		return 0;
 	}
 
 }

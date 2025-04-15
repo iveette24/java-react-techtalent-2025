@@ -1,4 +1,4 @@
-package ud09HerenciaEnJava.ejercicio1;
+package ud09HerenciaEnJava.ejercicio01;
 
 public class ej01electrodomesticoApp {
 
