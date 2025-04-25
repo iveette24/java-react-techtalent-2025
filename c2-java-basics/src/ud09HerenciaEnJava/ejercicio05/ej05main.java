@@ -22,5 +22,13 @@ public class ej05main {
 		aula.asignarProfesor(profesor);
 		aula.asignarEstudiantes(estudiantes);
 		aula.mostrarResultados();
+
+		System.out.println("\nClase de " + materias[random.nextInt(materias.length)]);
+		System.out.println("Profesor: " + profesor.getNombre());
+		System.out.println("Número de estudiantes: " + estudiantes.size());
+		System.out.println("Datos de los estudiantes:");
+		for (ej05estudiante estudiante : estudiantes) {
+			System.out.println(estudiante);
+		}
 	}
 }

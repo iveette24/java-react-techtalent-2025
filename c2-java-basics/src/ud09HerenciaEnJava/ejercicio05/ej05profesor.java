@@ -11,7 +11,13 @@ class ej05profesor extends ej05persona {
 	}
 
 	public boolean estaDisponible() {
-		return new Random().nextDouble() > 0.2; // 20% de probabilidad de no estar disponible
+		boolean estaDisponible = new Random().nextDouble() > 0.2;// 20% de probabilidad de no estar disponible
+		System.out.println("¿El profesor" + getNombre() + " está disponible? " + estaDisponible);
+		return estaDisponible;
+	}
+
+	public String getNombre() {
+		return nombre;
 	}
 
 	public String getMateria() {

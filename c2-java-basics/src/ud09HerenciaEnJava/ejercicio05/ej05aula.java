@@ -41,7 +41,7 @@ class ej05aula {
 					.filter(e -> e.getSexo().equals("M") && e.getCalificacion() >= 5).count();
 			long aprobadosMujeres = estudiantes.stream()
 					.filter(e -> e.getSexo().equals("F") && e.getCalificacion() >= 5).count();
-
+			
 			System.out.println("Clase impartida en el aula " + identificador);
 			System.out.println("Hombres aprobados: " + aprobadosHombres);
 			System.out.println("Mujeres aprobadas: " + aprobadosMujeres);
