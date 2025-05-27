@@ -1,0 +1,103 @@
+[[{
+  "_id": 1,
+  "capacidad": 10
+},
+{
+  "_id": 2,
+  "capacidad": 15
+},
+{
+  "_id": 3,
+  "capacidad": 20
+},
+{
+  "_id": 4,
+  "capacidad": 12
+},
+{
+  "_id": 5,
+  "capacidad": 18
+},
+{
+  "_id": 6,
+  "capacidad": 25
+},
+{
+  "_id": 7,
+  "capacidad": 22
+},
+{
+  "_id": 8,
+  "capacidad": 30
+},
+{
+  "_id": 9,
+  "capacidad": 28
+},
+{
+  "_id": 10,
+  "capacidad": 35
+}]
+
+,
+
+[{
+  "_id": "12345678A",
+  "NombreApellidos": "Juan Pérez",
+  "DNIJefe": null,
+  "despacho": 1
+},
+{
+  "_id": "14725836G",
+  "NombreApellidos": "José Sánchez",
+  "DNIJefe": "65498732F",
+  "despacho": 7
+},
+{
+  "_id": "25814736I",
+  "NombreApellidos": "Pedro Ortega",
+  "DNIJefe": "36985214H",
+  "despacho": 9
+},
+{
+  "_id": "32165498E",
+  "NombreApellidos": "Miguel Rodríguez",
+  "DNIJefe": "78912345D",
+  "despacho": 5
+},
+{
+  "_id": "36985214H",
+  "NombreApellidos": "Lucía Díaz",
+  "DNIJefe": null,
+  "despacho": 8
+},
+{
+  "_id": "45678912C",
+  "NombreApellidos": "Carlos Gómez",
+  "DNIJefe": "12345678A",
+  "despacho": 3
+},
+{
+  "_id": "65498732F",
+  "NombreApellidos": "Ana Martínez",
+  "DNIJefe": null,
+  "despacho": 6
+},
+{
+  "_id": "74185296J",
+  "NombreApellidos": "Elena Navarro",
+  "DNIJefe": null,
+  "despacho": 10
+},
+{
+  "_id": "78912345D",
+  "NombreApellidos": "Laura Fernández",
+  "DNIJefe": null,
+  "despacho": 4
+},
+{
+  "_id": "95175385K",
+  "NombreApellidos": "Daniel Torres",
+  "DNIJefe": null,
+  "despacho": 1
+}]]

@@ -1,0 +1,25 @@
+[[
+    { "nombre": "HP" },
+    { "nombre": "LG" },
+    { "nombre": "Samsung" },
+    { "nombre": "Apple" },
+    { "nombre": "Dell" },
+    { "nombre": "Sony" },
+    { "nombre": "Lenovo" },
+    { "nombre": "Asus" },
+    { "nombre": "Acer" },
+    { "nombre": "Microsoft" }
+]
+,
+[
+    { "nombre": "Laptop HP Envy", "precio": 999.99, "fabricante": { "$oid": "6835909345c5cef8e32e4c45" } },
+    { "nombre": "Monitor LG UltraWide", "precio": 299.99, "fabricante": { "$oid": "6835909345c5cef8e32e4c46" } },
+    { "nombre": "Smartphone Samsung Galaxy S21", "precio": 799.99, "fabricante": { "$oid": "6835909345c5cef8e32e4c47" } },
+    { "nombre": "Tablet Apple iPad Pro", "precio": 1099.99, "fabricante": { "$oid": "6835909345c5cef8e32e4c48" } },
+    { "nombre": "PC Dell XPS", "precio": 1199.99, "fabricante": { "$oid": "6835909345c5cef8e32e4c49" } },
+    { "nombre": "Auriculares Sony WH-1000XM4", "precio": 349.99, "fabricante": { "$oid": "6835909345c5cef8e32e4c4a" } },
+    { "nombre": "Laptop Lenovo ThinkPad X1", "precio": 1299.99, "fabricante": { "$oid": "6835909345c5cef8e32e4c4b" } },
+    { "nombre": "Router Asus RT-AX88U", "precio": 249.99, "fabricante": { "$oid": "6835909345c5cef8e32e4c4c" } },
+    { "nombre": "Chromebook Acer Spin", "precio": 399.99, "fabricante": { "$oid": "6835909345c5cef8e32e4c4d" } },
+    { "nombre": "Surface Laptop 5", "precio": 1099.99, "fabricante": { "$oid": "6835909345c5cef8e32e4c4e" } }
+]]
