@@ -1,4 +1,4 @@
-package mastermind_db;
+package com.mastermind.ui;
 
 import javax.swing.*;
 import java.awt.*;
