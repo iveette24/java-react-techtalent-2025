@@ -16,7 +16,7 @@ public class DBManager {
 	    		System.out.println("No se encontro el driver MySQL");
 	    		e.printStackTrace();
 	    	}
-	        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/masterminddb2", "root", "");
+	        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mastermind_db", "root", "");
 	       System.out.println("Conexion a MySQL exitosa");
 	    }
 
