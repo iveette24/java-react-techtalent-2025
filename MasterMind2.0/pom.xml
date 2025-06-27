@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">                         
   <modelVersion>4.0.0</modelVersion>
-  <groupId>mastermind</groupId>
-  <artifactId>MasterMind_final</artifactId>
+  <groupId>com.ejercicio</groupId>
+  <artifactId>MasterMind2.0</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
 <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
