@@ -1,3 +1,4 @@
+
 package controllers;
 
 import javax.swing.JOptionPane;
@@ -7,7 +8,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +17,7 @@ import models.conexionBD;
 
 public class cliente {
 
+	// Atributos
 	int id;
 	String nombreCliente;
 	String apellidoCliente;
@@ -24,6 +25,7 @@ public class cliente {
 	int DNI;
 	String fechaCliente;
 
+	// Getters y setters
 	public int getId() {
 		return id;
 	}
@@ -60,8 +62,8 @@ public class cliente {
 		return DNI;
 	}
 
-	public void setDNI(int dNI) {
-		this.DNI = dNI;
+	public void setDNI(int DNI) {
+		this.DNI = DNI;
 	}
 
 	public String getFechaCliente() {
@@ -72,6 +74,7 @@ public class cliente {
 		this.fechaCliente = fechaCliente;
 	}
 
+	// Métodos
 	public void insertarCliente(JTextField paramNombre, JTextField paramApellido, JTextField paraDireccion,
 			JTextField paramDNI, JTextField paramFecha) {
 
@@ -82,7 +85,7 @@ public class cliente {
 			int dni = Integer.parseInt(paramDNI.getText());
 			setDNI(dni);
 		} catch (NumberFormatException e) {
-			System.out.println("El DNI ingresado no es un número válido");
+			JOptionPane.showMessageDialog(null, "El DNI ingresado no es un número válido");
 			return;
 		}
 		setFechaCliente(paramFecha.getText());
@@ -91,18 +94,17 @@ public class cliente {
 
 		String consulta = "INSERT INTO cliente (nombre, apellido, direccion, dni, fecha) VALUES (?, ?, ?, ?, ?)";
 
-		try {
-			Connection con = objetoConexion.estableceConexion();
-			CallableStatement cs = con.prepareCall(consulta);
-			cs.setString(1, getNombreCliente());
-			cs.setString(2, getApellidoCliente());
-			cs.setString(3, getDirecciónCliente());
-			cs.setInt(4, getDNI());
-			cs.setString(5, getFechaCliente());
-			cs.execute();
+		try (Connection con = objetoConexion.estableceConexion();
+				PreparedStatement ps = con.prepareStatement(consulta)) {
+			ps.setString(1, getNombreCliente());
+			ps.setString(2, getApellidoCliente());
+			ps.setString(3, getDirecciónCliente());
+			ps.setInt(4, getDNI());
+			ps.setString(5, getFechaCliente());
+			ps.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Se insertó correctamente el cliente");
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "No se insertó correctamente el cliente, error: " + e.toString());
+			JOptionPane.showMessageDialog(null, "No se insertó correctamente el cliente, error: " + e.getMessage());
 		}
 	}
 
@@ -111,7 +113,7 @@ public class cliente {
 		DefaultTableModel modelo = new DefaultTableModel();
 		TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
 		paramMostrarClientes.setRowSorter(OrdenarTabla);
-		String sql = "";
+
 		modelo.addColumn("ID");
 		modelo.addColumn("Nombre");
 		modelo.addColumn("Apellido");
@@ -120,25 +122,24 @@ public class cliente {
 		modelo.addColumn("Fecha");
 
 		paramMostrarClientes.setModel(modelo);
-		sql = "SELECT * FROM cliente;";
+		String sql = "SELECT * FROM cliente";
 		String[] datos = new String[6];
-		Statement st;
 
-		try {
-			st = objetoConexion.estableceConexion().createStatement();
-			ResultSet rs = st.executeQuery(sql);
+		try (Connection con = objetoConexion.estableceConexion();
+				Statement st = con.createStatement();
+				ResultSet rs = st.executeQuery(sql)) {
 			while (rs.next()) {
-				datos[0] = rs.getString(1);
-				datos[1] = rs.getString(2);
-				datos[2] = rs.getString(3);
-				datos[3] = rs.getString(4);
-				datos[4] = rs.getString(5);
-				datos[5] = rs.getString(6);
+				datos[0] = rs.getString("id");
+				datos[1] = rs.getString("nombre");
+				datos[2] = rs.getString("apellido");
+				datos[3] = rs.getString("direccion");
+				datos[4] = rs.getString("dni");
+				datos[5] = rs.getString("fecha");
 				modelo.addRow(datos);
 			}
 			paramMostrarClientes.setModel(modelo);
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "No se pudo mostrar los registros, error: " + e.toString());
+			JOptionPane.showMessageDialog(null, "No se pudo mostrar los registros, error: " + e.getMessage());
 		}
 	}
 
@@ -146,14 +147,13 @@ public class cliente {
 		conexionBD objetoConexion = new conexionBD();
 		String consulta = "DELETE FROM cliente WHERE id = ?";
 
-		try {
-			Connection con = objetoConexion.estableceConexion();
-			CallableStatement cs = con.prepareCall(consulta);
-			cs.setInt(1, idCliente);
-			cs.execute();
+		try (Connection con = objetoConexion.estableceConexion();
+				PreparedStatement ps = con.prepareStatement(consulta)) {
+			ps.setInt(1, idCliente);
+			ps.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Se eliminó correctamente el cliente");
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "No se pudo eliminar el cliente, error: " + e.toString());
+			JOptionPane.showMessageDialog(null, "No se pudo eliminar el cliente, error: " + e.getMessage());
 		}
 	}
 
@@ -164,15 +164,15 @@ public class cliente {
 			int fila = tablaCliente.getSelectedRow();
 
 			if (fila >= 0) {
-				paramID.setText(tablaCliente.getValueAt(fila, 5).toString());
-				paramNombre.setText(tablaCliente.getValueAt(fila, 0).toString());
-				paramApellido.setText(tablaCliente.getValueAt(fila, 1).toString());
-				paraDireccion.setText(tablaCliente.getValueAt(fila, 2).toString());
-				paramDNI.setText(tablaCliente.getValueAt(fila, 3).toString());
-				paramFecha.setText(tablaCliente.getValueAt(fila, 4).toString());
+				paramID.setText(tablaCliente.getValueAt(fila, 0).toString());
+				paramNombre.setText(tablaCliente.getValueAt(fila, 1).toString());
+				paramApellido.setText(tablaCliente.getValueAt(fila, 2).toString());
+				paraDireccion.setText(tablaCliente.getValueAt(fila, 3).toString());
+				paramDNI.setText(tablaCliente.getValueAt(fila, 4).toString());
+				paramFecha.setText(tablaCliente.getValueAt(fila, 5).toString());
 			}
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Error de selección, error: " + e);
+			JOptionPane.showMessageDialog(null, "Error de selección, error: " + e.getMessage());
 		}
 	}
 
@@ -183,29 +183,27 @@ public class cliente {
 
 		try {
 			int idCliente = Integer.parseInt(paramID.getText());
-			String nombreCliente = paramNombre.getText();
-			String apellidoCliente = paramApellido.getText();
-
 			String consulta = "UPDATE cliente SET nombre=?, apellido=?, direccion=?, dni=?, fecha=? WHERE id=?";
 
-			Connection con = objetoConexion.estableceConexion();
-			PreparedStatement ps = con.prepareStatement(consulta);
-			ps.setString(1, nombreCliente);
-			ps.setString(2, apellidoCliente);
-			ps.setString(3, paraDireccion.getText());
-			ps.setInt(4, Integer.parseInt(paramDNI.getText()));
-			ps.setString(5, paramFecha.getText());
-			ps.setInt(6, idCliente);
+			try (Connection con = objetoConexion.estableceConexion();
+					PreparedStatement ps = con.prepareStatement(consulta)) {
+				ps.setString(1, paramNombre.getText());
+				ps.setString(2, paramApellido.getText());
+				ps.setString(3, paraDireccion.getText());
+				ps.setInt(4, Integer.parseInt(paramDNI.getText()));
+				ps.setString(5, paramFecha.getText());
+				ps.setInt(6, idCliente);
 
-			int filasActualizadas = ps.executeUpdate();
+				int filasActualizadas = ps.executeUpdate();
 
-			if (filasActualizadas > 0) {
-				JOptionPane.showMessageDialog(null, "Cliente modificado correctamente");
-			} else {
-				JOptionPane.showMessageDialog(null, "No se pudo modificar el cliente");
+				if (filasActualizadas > 0) {
+					JOptionPane.showMessageDialog(null, "Cliente modificado correctamente");
+				} else {
+					JOptionPane.showMessageDialog(null, "No se pudo modificar el cliente");
+				}
+
+				MostrarCliente(tablaCliente);
 			}
-
-			MostrarCliente(tablaCliente);
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Error al modificar el cliente: " + e.getMessage());
 		}

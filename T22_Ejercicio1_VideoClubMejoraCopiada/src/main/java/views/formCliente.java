@@ -1,39 +1,28 @@
+
 package views;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.SpringLayout;
 import javax.swing.border.TitledBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-
-import java.awt.FlowLayout;
-import javax.swing.JProgressBar;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
-import controllers.cliente;
-import models.conexionBD;
-
-import javax.swing.border.BevelBorder;
-import java.awt.ScrollPane;
-import javax.swing.JScrollPane;
-import javax.swing.JScrollPane;
-import javax.swing.border.EtchedBorder;
-import javax.swing.UIManager;
-import javax.swing.ListSelectionModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import controllers.cliente;
 
 public class formCliente extends JFrame {
 
@@ -66,7 +55,6 @@ public class formCliente extends JFrame {
 		setBounds(100, 100, 968, 528);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
 		SpringLayout sl_contentPane = new SpringLayout();
 		contentPane.setLayout(sl_contentPane);
