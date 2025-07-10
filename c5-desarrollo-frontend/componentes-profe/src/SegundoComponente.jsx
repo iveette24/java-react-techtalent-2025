@@ -10,20 +10,24 @@ const nuevoMensaje = {
   mensaje: "Hola Mundo",
   nombre: "Marc",
 };
-const boleano = false;
 
-let content;
-if (boleano) {
-  content = <Shakira />;
-} else {
-  content = <Topuria />;
-}
+const boleano = true;
+// let content;
+// if (boleano) {
+//   content = <Shakira />;
+// } else {
+//   content = <Topuria />;
+// }
+
+//10/07/2025
+// const getResult = (a,b)=> a+b;
 
 const SegundoComponente = () => {
   // const nombre = 'Marc';
 
   return (
     <>
+      {/* <h1>{getResult(1,3)}</h1> */}
       <p>Segundo componente</p>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Non maxime
@@ -34,7 +38,7 @@ const SegundoComponente = () => {
       <p>{1 + 2}</p>
       <MiBoton />
       <button>Otro botón</button>
-      <div>{content}</div>
+      {/* <div>{content}</div> */}
       <div>{boleano ? <Topuria /> : <Shakira />}</div>
       {/* <Perfil /> */}
       <p>{nombre}</p>
