@@ -6,10 +6,8 @@
 // export default App;
 
 const App = () => {
-    //Acciones y operaciones
-    return (
-        <h1>Hello World App</h1>
-    );
+  //Acciones y operaciones
+  return <h1>Hello World App</h1>;
 };
 
 // const App = () => <h1>Arrow Function</h1>;

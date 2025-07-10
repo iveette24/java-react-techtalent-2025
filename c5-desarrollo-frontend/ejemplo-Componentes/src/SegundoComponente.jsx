@@ -1,40 +1,72 @@
 // import { Fragment } from "react";
-import MOH from './assets/MOH.jpg';
-const nombre = 'Ivette';
+import MyButton from "./button";
+// import ProfileShakira from "./Shakira";
+// import ProfileTopuria from "./Topuria";
+import SelectorDePerfil from "./botonEscoger";
+import ShoppingList from "./Arrays";
+import MouseExample from "./ContrEvenMouse";
+import PointerExample from "./ContrEvenPuntero";
+import FocusExample from "./FocusExample";
+import KeyboardExample from "./KeyboardExample";
+
+
+
+const nombre = "Ivette";
 const nuevoMensaje = {
-    mensaje: 'Hola Mundo',
-    nombre: 'Maria'
+  mensaje: "Hola Mundo",
+  nombre: "Maria",
 };
 const booleano = true;
 
 const SegundoComponente = () => {
-    // const nombre = 'Ivette';
+  // const nombre = 'Ivette';
 
-    return (
-        // <div>
-        // <h2>Segundo Componente</h2>
-        // <p>Un párrafo</p>
-        // </div>
+  return (
+    // <div>
+    // <h2>Segundo Componente</h2>
+    // <p>Un párrafo</p>
+    // </div>
 
-        // <Fragment>
-        // <h2>Segundo Componente</h2>
-        // <p>Un párrafo</p>
-        // </Fragment>
+    // <Fragment>
+    // <h2>Segundo Componente</h2>
+    // <p>Un párrafo</p>
+    // </Fragment>
 
-        <>
-            <img src={MOH} alt="MastersOfHardcore" />
-            <p>Segundo componente</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non maxime inventore, nemo dolorium autem omnis. <strong>nombre</strong> Dolorem, magni eligendi beatae sapiente sunt molestias! Cum fuga quibusdam quam quidem distinctio vel fugit!</p>
-            <p>{ 1+2 }</p>
-            <p>{ nombre }</p>
-            {/* <p>{nuevoMensaje}</p> */}
-            <p>{ nuevoMensaje.mensaje }</p>
-            <p>{booleano}</p>
-            <code>{ JSON.stringify(nuevoMensaje) }</code>
-            
-        </>
-
-    );
+    <>
+      <p>Segundo componente</p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non maxime
+        inventore, nemo dolorium autem omnis. <strong>nombre</strong> Dolorem,
+        magni eligendi beatae sapiente sunt molestias! Cum fuga quibusdam quam
+        quidem distinctio vel fugit!
+      </p>
+      <p>{1 + 2}</p>
+      <MouseExample/>
+      <br />
+      <br />
+      <PointerExample/>
+      <br />
+      <br />
+      <FocusExample/>
+      <br />
+      <br />
+      <KeyboardExample/>
+      <br />
+      <br />
+      <MyButton />
+      <br />
+      <br />
+      <SelectorDePerfil />
+      {/* <ProfileShakira/>
+            <ProfileTopuria/> */}
+      <p>{nombre}</p>
+      {/* <p>{nuevoMensaje}</p> */}
+      <ShoppingList />
+      <p>{nuevoMensaje.mensaje}</p>
+      <p>{booleano}</p>
+      <code>{JSON.stringify(nuevoMensaje)}</code>
+    </>
+  );
 };
 
 export default SegundoComponente;
