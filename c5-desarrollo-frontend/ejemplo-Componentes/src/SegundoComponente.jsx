@@ -8,8 +8,8 @@ import MouseExample from "./ContrEvenMouse";
 import PointerExample from "./ContrEvenPuntero";
 import FocusExample from "./FocusExample";
 import KeyboardExample from "./KeyboardExample";
-
-
+import Counter from "./HookContador";
+import ContadorBotones from "./HookContadores";
 
 const nombre = "Ivette";
 const nuevoMensaje = {
@@ -41,16 +41,23 @@ const SegundoComponente = () => {
         quidem distinctio vel fugit!
       </p>
       <p>{1 + 2}</p>
-      <MouseExample/>
+      <MouseExample />
       <br />
       <br />
-      <PointerExample/>
+      <PointerExample />
       <br />
       <br />
-      <FocusExample/>
+      <FocusExample />
       <br />
       <br />
-      <KeyboardExample/>
+      <KeyboardExample />
+      <br />
+      <br />
+      <h1>Contador con un botón</h1>
+      <Counter />
+      <br />
+      <br />
+      <ContadorBotones />
       <br />
       <br />
       <MyButton />
