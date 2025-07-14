@@ -9,6 +9,8 @@ import PointerExample from "./EventosPointer";
 import FocusExample from "./EventosFocusForm";
 import KeyboardExample from "./EventosTeclado";
 import ContadorBotones from "./HookUseStateBoton";
+import BotonesJuntos from "./BonotesJuntos";
+
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -16,11 +18,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     {/* <App/> */}
     {/* <SegundoComponente/> */}
     {/* <ComponenteProp title="Hola soy Marc" subtitulo={123} /> */}
+    {/* <ComponenteProp /> */}
     {/* <ShoppingList /> */}
     {/* <MouseExample />
     <PointerExample />
     <FocusExample />
     <KeyboardExample/> */}
-    <ContadorBotones/>
+    {/* <ContadorBotones/> */}
+    <BotonesJuntos valor={3} count= {5}/>
   </React.StrictMode>
 );
