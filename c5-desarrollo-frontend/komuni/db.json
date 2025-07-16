@@ -1,0 +1,51 @@
+{
+  "reportes": [
+    {
+      "id": "fe3a",
+      "calle": "Carrer de les Roquetes",
+      "descripción": "Casa Marc, Nº14 ESC A-1,2",
+      "informaciónExtra": "Casa Marc",
+      "dificultad": "alta",
+      "imagen": "Captura de pantalla 2025-07-15 100550.png",
+      "latitud": 41.220077334772036,
+      "longitud": 1.5311953425407412,
+      "fecha": "2025-07-15T11:43:54.138Z"
+    },
+    {
+      "id": "184d",
+      "calle": "Rambla Nova",
+      "descripción": "Hay un bache",
+      "informaciónExtra": "",
+      "tipo": "bache",
+      "dificultad": "media",
+      "imagen": null,
+      "latitud": 41.11570887968938,
+      "longitud": 1.2519264221191408,
+      "fecha": "2025-07-16T08:07:55.024Z"
+    },
+    {
+      "id": "6448",
+      "calle": "Carrer Tres",
+      "descripción": "gaerfae",
+      "informaciónExtra": "",
+      "tipo": "rampa",
+      "dificultad": "alta",
+      "imagen": null,
+      "latitud": 41.11689198982801,
+      "longitud": 1.193046569824219,
+      "fecha": "2025-07-16T08:20:01.748Z"
+    },
+    {
+      "id": "0d02",
+      "calle": "Carrer de Frederic Mompou",
+      "descripción": "aergfaer",
+      "informaciónExtra": "",
+      "tipo": "escalera",
+      "dificultad": "baja",
+      "imagen": null,
+      "latitud": 41.115647028175516,
+      "longitud": 1.2413692474365237,
+      "fecha": "2025-07-16T08:26:10.706Z"
+    }
+  ]
+}
